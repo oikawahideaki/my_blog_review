@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources:posts
-root 'posts#index'
+  root 'posts#index'
   # get '/posts/new' => 'posts#new'
   # post '/posts/' => 'posts#create'
 
