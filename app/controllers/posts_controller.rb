@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-
+  before_action :set_post, only:[:show, :edit, :update, :destroy]
   def new
     @post = Post.new
   end
@@ -14,7 +14,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def index
@@ -22,11 +21,9 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
 
     @post.update_attributes(post_params)
 
@@ -34,7 +31,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
 
     @post.destroy
     redirect_to "/"
@@ -42,6 +38,10 @@ class PostsController < ApplicationController
 
 
   private
+
+    def set_post
+      @post = Post.find(params[:id])
+    end
 
     def post_params
       params.require(:post).permit(
