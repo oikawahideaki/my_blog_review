@@ -9,4 +9,16 @@
   <p><%= post.created_at.strftime('%Y年%m月%d日') %>
 <% end %>
 </div>
-<div class="col-md-4"></div>
+
+<div class="col-md-4">
+  <!-- Authorは一人しかいないので、コントローラーなしで呼び出してOK -->
+  <!-- コントローラーが汚れるので、ビュー内部で処理(これは賛否ある) -->
+    <div class="thumbnail">
+      <% author = Author.first %>
+      <img src="<%= author.image_url %>" alt="著者イメージ">
+      <div class="caption">
+        <h3><%= author.name %></h3>
+        <p><%= author.description %></p>
+      </div>
+    </div>
+</div>
