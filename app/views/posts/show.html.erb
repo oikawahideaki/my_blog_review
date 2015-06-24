@@ -1,0 +1,16 @@
+<div class="col-md-12">
+  <h1><%= @post.title %></h1>
+
+  <p>カテゴリ：<%= @post.category %></p>
+  <p>登校日：<%= @post.created_at %></p>
+
+  <hr>
+    <p><%= simple_format(@post.body) %></p>
+  <hr>
+  <%= link_to'編集する',edit_post_path, class: "btn btn-default" %>
+  <%= link_to'削除する',post_path, method: :delete, data: { confirm: '本当に削除して宜しいですか？'},class: "btn btn-danger" %>
+
+  <!--deleteキーは危険なので以下を付け足すとより良い。, data: { confirm: '本当に削除して宜しいですか？'} -->
+
+  <%= link_to'戻る',root_path, class: "btn btn-info" %>
+</div>
